@@ -24,7 +24,7 @@ service postgresql restart
 service tomcat8 restart
 echo "Si ya tiene instalado y configurado nginx termine el script con Ctrl-c o Ctrl-z"
 echo "de lo contrario presione enter"
-read
-apt-get install nginx
+read x;
+apt-get install -y nginx
 cat default_nginx-php > /etc/nginx/sites-available/default
 service nginx restart
