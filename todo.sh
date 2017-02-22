@@ -1,6 +1,6 @@
 #!/bin/sh
 apt-get update &&  apt-get -y upgrade
-apt-get install -y nmap vim curl php7.0-pgsql php7.0-fpm unzip gdal-bin python-gdal software-properties-common python-software-properties
+apt-get install -y nmap vim curl php7.0-pgsql php7.0-fpm php7.0-curl unzip gdal-bin python-gdal software-properties-common python-software-properties
 add-apt-repository ppa:webupd8team/java
 apt-get update
 apt-get install -y oracle-java8-installer
