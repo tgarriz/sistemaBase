@@ -43,14 +43,14 @@ cat pg_hba_conpass.conf > /etc/postgresql/9.5/main/pg_hba.conf
 cat tomcat-users.xml > /var/lib/tomcat8/conf/tomcat-users.xml
 cat tomcat8 > /etc/default/tomcat8
 service postgresql restart
-if [ $(ps awx | grep postgresql | grep -v grep | wc -l) -ne 0 ] ; then
+if [ $(ps awx | grep postgresql | grep -v grep | wc -l) -eq 0 ] ; then
         echo "Hubo un problema al iniciar postgresql";
         echo "Se interrumpe la ejecucion";
         exit;
 fi
 service tomcat8 restart
 
-if [ $(ps awx | grep tomcat8 | grep -v grep | wc -l) -ne 0 ] ; then
+if [ $(ps awx | grep tomcat8 | grep -v grep | wc -l) -eq 0 ] ; then
         echo "Hubo un problema al iniciar postgresql";
         echo "Se interrumpe la ejecucion";
         exit;
@@ -62,7 +62,7 @@ apt-get install -y nginx
 cat default_nginx-php > /etc/nginx/sites-available/default
 service nginx restart
 
-if [ $(ps awx | grep nginx | grep -v grep | wc -l) -ne 0 ] ; then
+if [ $(ps awx | grep nginx | grep -v grep | wc -l) -eq 0 ] ; then
         echo "Hubo un problema al iniciar postgresql";
         echo "Se interrumpe la ejecucion";
         exit;
