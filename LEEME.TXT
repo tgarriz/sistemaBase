@@ -1,0 +1,36 @@
+Leeme
+
+Este conjunto de archivos instala y configura software necesario para correr una aplicacion webmap sobre una distribución linux/debian o deribados.
+Software que instala:
+	-Postgresql Version 9.5: Como Base de datos.
+	-Postgis Version 2.2: Extension de postgresql para manegar elementos georreferenciados.
+	-Oracle Java Version 8: Maquina virtual java.
+	-Tomcat Version 8: Contenedor de aplicaciones java, se utiliza para correr geoserver.
+	-Geoserver Version 2.10: Como administador de Layers.
+	-Nginx Version 1.10: Servidor web para la aplicacion webmapping.
+	-Php7-fpm: Motor php para nginx.
+
+Postgresql
+	-Nombre de la BD: rafamgis
+	-Usuario: postgres
+	-Clave: rafam2016
+
+Geoserver
+	-Usuario: admin
+	-Clave: geoserver
+
+Tomcat:
+	-Usuario: tomcat
+	-Clave: rafam2016
+
+
+Todos los servicios estan configurados para autoiniciarse. Durante la instalacion de paquetes se debera aceptar la inyeccion de repositorios asi como la licencia de instalacion de Oracle Java.
+El script no tiene en cuenta la configuracion de proxy si ubiere.
+
+Archivos de configuracion
+	-default_nginx-php: Archivo de configuracion que activa el interprete php7.0-fpm para nginx.
+	-tomcat8: archivo de configuracio para tomcat, aca se le asigna la memoria a la java virtual machine, el usuario y grupo con el cual se ejecuta el tomcat entre otras cosas.
+	-tomcat-users.xml: archivo de configuracion de cuenta para tomcat, aca puede cambiar usuario y contraseña para tomcat.
+	-postgresql.conf: archivo de configuracion de postgresql, este archivo sirve para permitir conexiones entrantes a la BD, entre otras cosas.
+	-pg_hba_conpass.conf: archivo de configuracion para establecer desde que red se puede acceder a la BD. Aca se debera descomentar la ultima linea y especificar la red desde la cual se quere tener acceso a la BD.
+
