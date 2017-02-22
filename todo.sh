@@ -1,11 +1,33 @@
 #!/bin/sh
 apt-get update &&  apt-get -y upgrade
-apt-get install -y nmap vim curl php7.0-pgsql php7.0-fpm php7.0-curl unzip gdal-bin python-gdal software-properties-common python-software-properties
+pt-get install -y php7.0-pgsql php7.0-fpm php7.0-curl unzip gdal-bin python-gdal software-properties-common python-software-properties
+if [ $? = 0 ] ; then
+	echo "Hubo un problema al instalar php-7.0";
+	echo "Se interrumpe la ejecucion";
+	break;
+fi
+
 add-apt-repository ppa:webupd8team/java
 apt-get update
 apt-get install -y oracle-java8-installer
 apt-get install -y oracle-java8-set-default
-apt-get install -y tomcat8 tomcat8-admin tomcat8-user postgresql-9.5 postgresql-9.5-postgis-2.2 postgresql-9.5-postgis-scripts
+if [ $? = 0 ] ; then
+        echo "Hubo un problema al instalar Oracle Java 8";
+        echo "Se interrumpe la ejecucion";
+        break;
+fi
+apt-get install -y tomcat8 tomcat8-admin tomcat8-user
+if [ $? = 0 ] ; then
+        echo "Hubo un problema al instalar tomcat 8";
+        echo "Se interrumpe la ejecucion";
+        break;
+fi
+apt-get install -y postgresql-9.5 postgresql-9.5-postgis-2.2 postgresql-9.5-postgis-scripts
+if [ $? = 0 ] ; then
+        echo "Hubo un problema al instalar php-7.0";
+        echo "Se interrumpe la ejecucion";
+        break;
+fi
 wget http://downloads.sourceforge.net/project/geoserver/GeoServer/2.10.0/geoserver-2.10.0-war.zip
 unzip geoserver-2.10.0-war.zip
 cp geoserver.war /var/lib/tomcat8/webapps/
