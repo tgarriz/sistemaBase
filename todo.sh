@@ -1,6 +1,6 @@
 #!/bin/sh
 apt-get update &&  apt-get -y upgrade
-pt-get install -y php7.0-pgsql php7.0-fpm php7.0-curl unzip gdal-bin python-gdal software-properties-common python-software-properties
+apt-get install -y php7.0-pgsql php7.0-fpm php7.0-curl unzip gdal-bin python-gdal software-properties-common python-software-properties
 if [ $? = 0 ] ; then
 	echo "Hubo un problema al instalar php-7.0";
 	echo "Se interrumpe la ejecucion";
